@@ -29,4 +29,5 @@ def get_review():
         print(str(i) + str(') ') + texts.string)
     print('Program running time :' + str(time.clock() - start_time))
     sys.exit()
+
 get_review()
