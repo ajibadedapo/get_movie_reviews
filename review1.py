@@ -17,10 +17,11 @@ def get_review():
     res = requests.get(reviewlink)
     if res.status_code == 404:
         print('MOVIE NOT FOUND, CHECK SPELLING !')
+        time.sleep(2)
         sys.exit()
     result = res.content
-    soup = BeautifulSoup(result)
-    review = soup.findAll("div", {"class": "the_review"})
+    html = BeautifulSoup(result)
+    review = html.findAll("div", {"class": "the_review"})
     i = 0
     print(str(filename) + ' reviews')
     print('.......................................')
@@ -28,6 +29,11 @@ def get_review():
         i += 1
         print(str(i) + str(') ') + texts.string)
     print('Program running time :' + str(time.clock() - start_time))
+    time.sleep(2)
     sys.exit()
 
-get_review()
+def main():
+	get_review()
+
+if __name__ == '__main__':
+	main()
